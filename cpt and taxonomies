@@ -1,0 +1,259 @@
+function cptui_register_my_cpts() {
+
+	/**
+	 * Post Type: IP Cases.
+	 */
+
+	$labels = [
+		"name" => __( "IP Cases", "custom-post-type-ui" ),
+		"singular_name" => __( "IP Case", "custom-post-type-ui" ),
+		"menu_name" => __( "IP Cases", "custom-post-type-ui" ),
+		"all_items" => __( "All IP Cases", "custom-post-type-ui" ),
+		"add_new" => __( "Add new analysis", "custom-post-type-ui" ),
+		"add_new_item" => __( "Add new IP Case", "custom-post-type-ui" ),
+		"edit_item" => __( "Edit IP Case", "custom-post-type-ui" ),
+		"new_item" => __( "New IP Case", "custom-post-type-ui" ),
+		"view_item" => __( "View IP Case", "custom-post-type-ui" ),
+		"view_items" => __( "View IP Cases", "custom-post-type-ui" ),
+		"search_items" => __( "Search for IP Cases", "custom-post-type-ui" ),
+		"not_found" => __( "No IP Cases found", "custom-post-type-ui" ),
+		"not_found_in_trash" => __( "No IP Cases found in trash", "custom-post-type-ui" ),
+		"parent" => __( "Parent IP Case:", "custom-post-type-ui" ),
+		"featured_image" => __( "Featured image for this IP Case", "custom-post-type-ui" ),
+		"set_featured_image" => __( "Set featured image for this IP Case", "custom-post-type-ui" ),
+		"remove_featured_image" => __( "Remove featured image for this IP Case", "custom-post-type-ui" ),
+		"use_featured_image" => __( "Use as featured image for this IP Case", "custom-post-type-ui" ),
+		"archives" => __( "IP Case archives", "custom-post-type-ui" ),
+		"insert_into_item" => __( "Insert into IP Case", "custom-post-type-ui" ),
+		"uploaded_to_this_item" => __( "Upload to this IP Case", "custom-post-type-ui" ),
+		"filter_items_list" => __( "Filter IP Cases list", "custom-post-type-ui" ),
+		"items_list_navigation" => __( "IP Cases list navigation", "custom-post-type-ui" ),
+		"items_list" => __( "IP Cases list", "custom-post-type-ui" ),
+		"attributes" => __( "IP Cases attributes", "custom-post-type-ui" ),
+		"name_admin_bar" => __( "IP Case", "custom-post-type-ui" ),
+		"item_published" => __( "IP Case published", "custom-post-type-ui" ),
+		"item_published_privately" => __( "IP Case published privately.", "custom-post-type-ui" ),
+		"item_reverted_to_draft" => __( "IP Case reverted to draft.", "custom-post-type-ui" ),
+		"item_scheduled" => __( "IP Case scheduled", "custom-post-type-ui" ),
+		"item_updated" => __( "IP Case updated.", "custom-post-type-ui" ),
+		"parent_item_colon" => __( "Parent IP Case:", "custom-post-type-ui" ),
+	];
+
+	$args = [
+		"label" => __( "IP Cases", "custom-post-type-ui" ),
+		"labels" => $labels,
+		"description" => "Analysing IP Cases around Canada India, US & EU",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"has_archive" => "ipcases",
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"delete_with_user" => false,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => [ "slug" => "ipcases", "with_front" => true ],
+		"query_var" => true,
+		"supports" => [ "title", "editor", "thumbnail", "excerpt", "custom-fields", "comments", "author", "page-attributes", "post-formats", "thumbnail" ],
+		"taxonomies" => [ "cr", "pt", "tm", "ip_tags" ],
+	];
+
+	register_post_type( "ipcases", $args );
+}
+
+add_action( 'init', 'cptui_register_my_cpts' );
+
+
+
+function cptui_register_my_taxes() {
+
+	/**
+	 * Taxonomy: Copyright Topics.
+	 */
+
+	$labels = [
+		"name" => __( "Copyright Topics", "custom-post-type-ui" ),
+		"singular_name" => __( "Copyright Topic", "custom-post-type-ui" ),
+		"menu_name" => __( "Copyright Topics", "custom-post-type-ui" ),
+		"all_items" => __( "All Copyright Topics", "custom-post-type-ui" ),
+		"edit_item" => __( "Edit Copyright Topic", "custom-post-type-ui" ),
+		"view_item" => __( "View Copyright Topics", "custom-post-type-ui" ),
+		"update_item" => __( "Update Copyright Topics", "custom-post-type-ui" ),
+		"add_new_item" => __( "Add new Copyright Topic", "custom-post-type-ui" ),
+		"new_item_name" => __( "New Copyright Topic", "custom-post-type-ui" ),
+		"parent_item" => __( "Parent Copyright", "custom-post-type-ui" ),
+		"parent_item_colon" => __( "Parent Copyright:", "custom-post-type-ui" ),
+		"search_items" => __( "Search Copyright Topics", "custom-post-type-ui" ),
+		"popular_items" => __( "Landmark Copyright Judgments", "custom-post-type-ui" ),
+		"separate_items_with_commas" => __( "Separate Copyright Topics with commas", "custom-post-type-ui" ),
+		"add_or_remove_items" => __( "Add or remove Copyright Topics", "custom-post-type-ui" ),
+		"choose_from_most_used" => __( "Choose from the most used Copyright Topics", "custom-post-type-ui" ),
+		"not_found" => __( "No Copyright Topics found", "custom-post-type-ui" ),
+		"no_terms" => __( "No Copyright Topics", "custom-post-type-ui" ),
+		"items_list_navigation" => __( "Copyright Topics list navigation", "custom-post-type-ui" ),
+		"items_list" => __( "Copyright Topics list", "custom-post-type-ui" ),
+	];
+
+	$args = [
+		"label" => __( "Copyright Topics", "custom-post-type-ui" ),
+		"labels" => $labels,
+		"public" => true,
+		"publicly_queryable" => true,
+		"hierarchical" => true,
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => [ 'slug' => 'cr', 'with_front' => false,  'hierarchical' => true, ],
+		"show_admin_column" => true,
+		"show_in_rest" => true,
+		"rest_base" => "cr",
+		"rest_controller_class" => "WP_REST_Terms_Controller",
+		"show_in_quick_edit" => true,
+		];
+	register_taxonomy( "cr", [ "ipcases" ], $args );
+
+	/**
+	 * Taxonomy: Patent Topics.
+	 */
+
+	$labels = [
+		"name" => __( "Patent Topics", "custom-post-type-ui" ),
+		"singular_name" => __( "Patent Topic", "custom-post-type-ui" ),
+		"menu_name" => __( "Patent Topics", "custom-post-type-ui" ),
+		"all_items" => __( "All Patent Topics", "custom-post-type-ui" ),
+		"edit_item" => __( "Edit Patent Topic", "custom-post-type-ui" ),
+		"view_item" => __( "View Patent Topic", "custom-post-type-ui" ),
+		"update_item" => __( "Update Patent Topic name", "custom-post-type-ui" ),
+		"add_new_item" => __( "Add new Patent Topic", "custom-post-type-ui" ),
+		"new_item_name" => __( "New Patent Topic name", "custom-post-type-ui" ),
+		"parent_item" => __( "Parent Patent Topic", "custom-post-type-ui" ),
+		"parent_item_colon" => __( "Parent Patent Topic:", "custom-post-type-ui" ),
+		"search_items" => __( "Search Patent Topics", "custom-post-type-ui" ),
+		"popular_items" => __( "Popular Patent Topics", "custom-post-type-ui" ),
+		"separate_items_with_commas" => __( "Separate Patent Topics with commas", "custom-post-type-ui" ),
+		"add_or_remove_items" => __( "Add or remove Patent Topics", "custom-post-type-ui" ),
+		"choose_from_most_used" => __( "Choose from the most used Patent Topics", "custom-post-type-ui" ),
+		"not_found" => __( "No Patent Topics found", "custom-post-type-ui" ),
+		"no_terms" => __( "No Patent Topics", "custom-post-type-ui" ),
+		"items_list_navigation" => __( "Patent Topics list navigation", "custom-post-type-ui" ),
+		"items_list" => __( "Patent Topics list", "custom-post-type-ui" ),
+	];
+
+	$args = [
+		"label" => __( "Patent Topics", "custom-post-type-ui" ),
+		"labels" => $labels,
+		"public" => true,
+		"publicly_queryable" => true,
+		"hierarchical" => true,
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => [ 'slug' => 'pt', 'with_front' => true,  'hierarchical' => true, ],
+		"show_admin_column" => true,
+		"show_in_rest" => true,
+		"rest_base" => "pt",
+		"rest_controller_class" => "WP_REST_Terms_Controller",
+		"show_in_quick_edit" => true,
+		];
+	register_taxonomy( "pt", [ "ipcases" ], $args );
+
+	/**
+	 * Taxonomy: Trademark Topics.
+	 */
+
+	$labels = [
+		"name" => __( "Trademark Topics", "custom-post-type-ui" ),
+		"singular_name" => __( "Trademark Topic", "custom-post-type-ui" ),
+		"menu_name" => __( "Trademark Topics", "custom-post-type-ui" ),
+		"all_items" => __( "All Trademark Topics", "custom-post-type-ui" ),
+		"edit_item" => __( "Edit Trademark Topic", "custom-post-type-ui" ),
+		"view_item" => __( "View Trademark Topic", "custom-post-type-ui" ),
+		"update_item" => __( "Update Trademark Topic name", "custom-post-type-ui" ),
+		"add_new_item" => __( "Add new Trademark Topic", "custom-post-type-ui" ),
+		"new_item_name" => __( "New Trademark Topic name", "custom-post-type-ui" ),
+		"parent_item" => __( "Parent Trademark Topic", "custom-post-type-ui" ),
+		"parent_item_colon" => __( "Parent Trademark Topic:", "custom-post-type-ui" ),
+		"search_items" => __( "Search Trademark Topics", "custom-post-type-ui" ),
+		"popular_items" => __( "Popular Trademark Topics", "custom-post-type-ui" ),
+		"separate_items_with_commas" => __( "Separate Trademark Topics with commas", "custom-post-type-ui" ),
+		"add_or_remove_items" => __( "Add or remove Trademark Topics", "custom-post-type-ui" ),
+		"choose_from_most_used" => __( "Choose from the most used Trademark Topics", "custom-post-type-ui" ),
+		"not_found" => __( "No Trademark Topics found", "custom-post-type-ui" ),
+		"no_terms" => __( "No Trademark Topics", "custom-post-type-ui" ),
+		"items_list_navigation" => __( "Trademark Topics list navigation", "custom-post-type-ui" ),
+		"items_list" => __( "Trademark Topics list", "custom-post-type-ui" ),
+	];
+
+	$args = [
+		"label" => __( "Trademark Topics", "custom-post-type-ui" ),
+		"labels" => $labels,
+		"public" => true,
+		"publicly_queryable" => true,
+		"hierarchical" => true,
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => [ 'slug' => 'tm', 'with_front' => true,  'hierarchical' => true, ],
+		"show_admin_column" => true,
+		"show_in_rest" => true,
+		"rest_base" => "tm",
+		"rest_controller_class" => "WP_REST_Terms_Controller",
+		"show_in_quick_edit" => true,
+		];
+	register_taxonomy( "tm", [ "ipcases" ], $args );
+
+	/**
+	 * Taxonomy: IP Tags.
+	 */
+
+	$labels = [
+		"name" => __( "IP Tags", "custom-post-type-ui" ),
+		"singular_name" => __( "IP Tag", "custom-post-type-ui" ),
+		"menu_name" => __( "IP Tags", "custom-post-type-ui" ),
+		"all_items" => __( "All IP Tags", "custom-post-type-ui" ),
+		"edit_item" => __( "Edit IP Tag", "custom-post-type-ui" ),
+		"view_item" => __( "View IP Tag", "custom-post-type-ui" ),
+		"update_item" => __( "Update IP Tag name", "custom-post-type-ui" ),
+		"add_new_item" => __( "Add new IP Tag", "custom-post-type-ui" ),
+		"new_item_name" => __( "New IP Tag name", "custom-post-type-ui" ),
+		"parent_item" => __( "Parent IP Tag", "custom-post-type-ui" ),
+		"parent_item_colon" => __( "Parent IP Tag:", "custom-post-type-ui" ),
+		"search_items" => __( "Search IP Tags", "custom-post-type-ui" ),
+		"popular_items" => __( "Popular IP Tags", "custom-post-type-ui" ),
+		"separate_items_with_commas" => __( "Separate IP Tags with commas", "custom-post-type-ui" ),
+		"add_or_remove_items" => __( "Add or remove IP Tags", "custom-post-type-ui" ),
+		"choose_from_most_used" => __( "Choose from the most used IP Tags", "custom-post-type-ui" ),
+		"not_found" => __( "No IP Tags found", "custom-post-type-ui" ),
+		"no_terms" => __( "No IP Tags", "custom-post-type-ui" ),
+		"items_list_navigation" => __( "IP Tags list navigation", "custom-post-type-ui" ),
+		"items_list" => __( "IP Tags list", "custom-post-type-ui" ),
+	];
+
+	$args = [
+		"label" => __( "IP Tags", "custom-post-type-ui" ),
+		"labels" => $labels,
+		"public" => true,
+		"publicly_queryable" => true,
+		"hierarchical" => false,
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => [ 'slug' => 'ip_tags', 'with_front' => true, ],
+		"show_admin_column" => true,
+		"show_in_rest" => true,
+		"rest_base" => "ip_tags",
+		"rest_controller_class" => "WP_REST_Terms_Controller",
+		"show_in_quick_edit" => true,
+		];
+	register_taxonomy( "ip_tags", [ "ipcases" ], $args );
+}
+add_action( 'init', 'cptui_register_my_taxes' );
